@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style >
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: #011c40;
+        }
+
+        .uk1{
+            width: 10%;
+        }
+
+        hr{
+            width: 100%;
+            border: none;
+            outline: none;
+            height: 4px;
+            background-color: #0889a564;
+        }
+
+        .two{
+            width: 100%;
+            height: 100vh;
+            background: #011c40;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-bottom, .two-top{
+            width: 100%;
+            height: 25%;
+            display: flex;
+            margin: auto;
+        }
+
+        .two-parts{
+            width: 30%;
+            height: 90%;
+            transition: .5s;
+            background-color: #26658c;
+            border-radius: 30px;
+            margin: auto;
+        }
+
+        .two-parts:hover{
+            transform: translateY(-7px);
+            box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.349);
+            transition: .5s;
+        }
+
+        .two-parts-top{
+            width: 100%;
+            height: 40%;
+            display: flex;
+            margin: auto;
+        }
+
+        .two-parts-bottom{
+            width: 100%;
+            height: 60%;
+            display: flex;
+            margin: auto;
+        }
+
+        .prof-pic{
+            margin: auto;
+            height: 90%;
+            width: 26%;
+            border-radius: 50%;
+        }
+
+        .two-parts-bottom h2{
+            width: 90%;
+            margin: auto;
+            font-size: larger;
+            color: #a7ebf2;
+            font-weight: 300;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+        }
+
+        #show-btn{
+            display: none;
+        }
+
+        .category-toggle{
+            align-self: center;
+            margin: auto 18px auto auto;
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(167, 235, 242, .55);
+            border-radius: 12px;
+            background: #023859;
+            color: #a7ebf2;
+            cursor: pointer;
+            font-size: 23px;
+            line-height: 1;
+            transition: background .2s, transform .2s, border-color .2s;
+        }
+
+        .category-toggle:hover{
+            background: #075078;
+            border-color: #a7ebf2;
+        }
+
+        .category-toggle:focus-visible{
+            outline: 2px solid #a7ebf2;
+            outline-offset: 3px;
+        }
+
+        .header{
+            width: 100%;
+            height: 8vh;
+            display: flex;
+            flex-direction: row;
+            background-color: rgba(58, 97, 136, 0.7504);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            z-index: 999;
+            top: 0;
+        }
+
+        .header-left{
+            width: 25%;
+            height: 100%;
+            display: flex;
+        }
+
+        .header-left h2{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #54abbf;
+            font-size: xx-large;
+            margin: auto;
+            text-align: center;
+        }
+
+        .header-right{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+        }
+
+        .header-right a{
+            color: #a7ebf2;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: auto;
+            cursor: pointer;
+            transition: .5s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .header-right a:hover{
+            color: #71dce8;
+            transition: .5s;
+        }
+
+        #catagories-section{
+            width: 100%;
+            height: 15vh;
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(58, 97, 136, 0.7504);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            z-index: 999;
+            top: 8vh;
+        }
+
+        .catagory-top, .catagory-bottom{
+            width: 100%;
+            height: 50%;
+            display: flex;
+        }
+
+        #catagory-parts{
+            width: 20.5%;
+            height: 70%;
+            background-color: #023859;
+            border: none;
+            border-radius: 30px;
+            text-align: center;
+            color: #71dce8;
+            margin: auto;
+        }
+
+        #catagory-parts1{
+            width: 25%;
+            height: 70%;
+            background-color: #023859;
+            border: none;
+            border-radius: 30px;
+            text-align: center;
+            color: #71dce8;
+            margin: auto;
+        }
+
+        .first-shelf{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            background: linear-gradient(#011c40,#023859);
+        }
+
+        .mid{
+            width: 100%;
+            height: 40vh;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left-mid{
+            display: flex;
+            width: 50%;
+            height: 100%;
+            flex-direction: column;
+            background-image: url(images/blue-leaf.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .left-mid h1{
+            color: rgb(186, 165, 5);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 800;
+            text-align: center;
+            font-size: 60px;
+            margin: auto;
+        }
+
+        .vip-btn{
+            color: rgb(186, 165, 5);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 800;
+            text-align: center;
+            margin: auto;
+            font-size: large;
+            transition: .5s;
+            cursor: pointer;
+            border: 3px solid #54abbf;
+            background-color: #2b638685;
+            border-radius: 30px;
+            height: 70px;
+            width: 30%;
+        }
+
+        .vip-btn:hover{
+            border: 3px solid #9ddfee;
+            background-color: #3d92c685;
+            color: rgb(255, 255, 0);
+            transition: .5s;
+        }
+
+        .right-mid{
+            display: flex;
+            width: 50%;
+            height: 100%;
+            flex-direction: column;
+            background-image: url(images/blue-leaf-opposite.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .right-mid p{
+            color: rgb(186, 165, 5);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 800;
+            width: 90%;
+            text-align: center;
+            line-height: 30px;
+            margin: auto;
+        }
+
+        .second-shelf{
+            width: 100%;
+            height: 200vh;
+            background: linear-gradient(#023859,#011c40);
+        }
+
+        .slider-section{
+            width: 100%;
+            height: 100vh;
+            margin-top: 23vh;
+            background-color: #011c40;
+            display: flex;
+        }
+
+        .slider-slides-content-choosing-part{
+            width: 15%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            background-color: #26658c8c;
+            border-radius: 30px;
+            height: 90%;
+        }
+
+        .slider-choose-part{
+            margin: auto;
+            height: 22%;
+            width: 90%;
+            border-radius: 30px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .slider-section-inner{
+            width: 60%;
+            height: 90%;
+            background-color: #26658c;
+            border-radius: 30px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .slider-section-inner .slider-main-image{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        .slider-section-inner .slider-arrow{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(1, 28, 64, 0.75);
+            color: #a7ebf2;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .slider-section-inner .slider-arrow:hover{
+            background: rgba(1, 28, 64, 0.95);
+        }
+
+        .slider-section-inner .slider-prev{
+            left: 18px;
+        }
+
+        .slider-section-inner .slider-next{
+            right: 18px;
+        }
+
+        .slider-section-inner .slider-counter{
+            position: absolute;
+            left: 50%;
+            bottom: 18px;
+            transform: translateX(-50%);
+            padding: 8px 14px;
+            border-radius: 20px;
+            color: #a7ebf2;
+            background: rgba(1, 28, 64, 0.75);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .slider-choose-part{
+            cursor: pointer;
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            transition: border-color .2s, transform .2s;
+        }
+
+        .slider-choose-part:hover{
+            transform: scale(1.03);
+        }
+
+        .slider-choose-part.active{
+            border-color: #a7ebf2;
+        }
+
+
+        .first-left{
+            width: 30%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .first-left-inner{
+            width: 90%;
+            height: 95%;
+            margin: auto;
+            border-radius: 30px;
+            background-color: #26658c78;
+        }
+
+        .first-right{
+            width: 100%;
+            height: 100%;
+        }
+
+        .first-right-top, .first-right-bottom{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            margin: auto;
+        }
+
+        .F-top-parts{
+            width: 30%;
+            height: 90%;
+            background-color: #26658c78;
+            border-radius: 30px;
+            margin: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div class="header-left">
+            <h2>Gruve</h2>
+        </div>
+
+        <div class="header-right">
+            <a href="profile.html">Profile</a>
+            <a href="index.html">Home</a>
+            <a href="settings.html">Settings</a>
+            <a class="cart-btn" href="">CART</a>
+            <button class="category-toggle" type="button" id="category-toggle" onclick="toggleCatagories()" aria-controls="catagories-section" aria-expanded="true" aria-label="Hide categories" title="Hide categories">☷<span id="category-toggle-arrow" aria-hidden="true" style="font-size:14px;margin-left:3px;">⌃</span></button>
+        </div>
+    </section>
+
+    <section id="catagories-section">
+        <div class="catagory-top">
+            <select name="" id="catagory-parts">
+                <option >All Prices</option>
+                <option >Price low to high</option>
+                <option >Price high to low</option>
+            </select>
+
+            <select name="" id="catagory-parts">
+                <option >All Dates</option>
+                <option >latest to earliest</option>
+                <option >earliest to latest</option>
+                
+            </select>
+
+            <select name="" id="catagory-parts">
+                <option >All Colors</option>
+                <option >red</option>
+                <option >blue</option>
+                <option >white</option>
+                <option >black</option>
+                <option >pink</option>
+                <option >purple</option>
+                <option >green</option>
+                <option >yellow</option>
+                <option >orange</option>
+                
+            </select>
+
+            <select name="" id="catagory-parts">
+                <option >All Sectors</option>
+                <option >Landing Pages</option>
+                <option >Technology Corps</option>
+                <option >Shopify sites</option>
+                <option >Bussieness Advertisement</option>
+                <option >Personal Portfoilo</option>
+                <option >Contact Us Page</option>
+            </select>
+        </div>
+
+        <div class="catagory-bottom">
+            <select name="" id="catagory-parts1">
+                <option >All Themes</option>
+                <option >Fancy</option>
+                <option >Techy</option>
+                <option >Vector</option>
+                <option >Artistic</option>
+                <option >Abyssal</option>
+                <option >Bold</option>
+                <option >AI Made</option>
+            </select>
+
+            <select name="" id="catagory-parts1">
+                <option >All Manufucturers</option>
+                <option >Gruve Manufuctured</option>
+                <option >Seller Manufuctured</option>
+                <option >VIP Manufuctured</option>
+            </select>
+
+            <select name="" id="catagory-parts1">
+                <option >All Types Of Sites</option>
+                <option >Normal</option>
+                <option >Uploaded VersEs</option>
+                <option >Special Sites</option>
+                <option >VIP Sites</option>
+            </select>
+
+        </div>
+    </section>
+    
+    <section class="slider-section">
+        <div class="slider-slides-content-choosing-part">
+            <div style="background-image: url(images/purple-site.png);" class="slider-choose-part active" data-slide="0" role="button" tabindex="0" aria-label="Show Koenigsegg Jesko image"></div>
+            <div style="background-image: url(images/red-site.png);" class="slider-choose-part" data-slide="1" role="button" tabindex="0" aria-label="Show LaFerrari image"></div>
+            <div style="background-image: url(images/orange-site.png);" class="slider-choose-part" data-slide="2" role="button" tabindex="0" aria-label="Show Porsche Taycan image"></div>
+            <div style="background-image: url(images/custom-site.png);" class="slider-choose-part" data-slide="3" role="button" tabindex="0" aria-label="Show BMW M4 image"></div>
+        </div>
+        <div class="slider-section-inner" aria-label="Car image slider">
+            <img class="slider-main-image" src="images/purple-site.png" alt="Porsche Taycan">
+            <button class="slider-arrow slider-prev" type="button" aria-label="Previous image">&#8249;</button>
+            <button class="slider-arrow slider-next" type="button" aria-label="Next image">&#8250;</button>
+            <div class="slider-counter" aria-live="polite">1 / 4</div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="first-shelf" class="first-shelf">
+        <div class="first-right">
+            <div class="first-right-top">
+                <div class="F-top-parts"></div>
+                <div class="F-top-parts"></div>
+                <div class="F-top-parts"></div>
+            </div>
+            <div class="first-right-bottom">
+                <div class="F-top-parts"></div>
+                <div class="F-top-parts"></div>
+                <div class="F-top-parts"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mid">
+        <div class="left-mid">
+            <h1>V.I.P Class</h1>
+            <button onclick="goTosettings()" class="vip-btn" >Register For V.I.P</button>
+        </div>
+        <div class="right-mid">
+            <p>Be on a better class as a user of Gruve.Get more priorites than the user you were before.Share Connections with us & Upload any VersE to anyone. "Gift and be Gifted" advantages, VersE uploading &many more,Just register by clicking the button below then Freely enjoy the class & Unlock the forbiddens of Gruve</p>
+        </div>
+    </section>
+
+    <section class="second-shelf">
+        <div class="two-top">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+            
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b0b63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #72c3eb63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="two-bottom">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #0a159063;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b0b63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="two-top">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+            
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #23b24e63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b0b63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="two-bottom">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #0a159063;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b8f63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script>
+        function toggleCatagories(){
+            const categories = document.getElementById('catagories-section');
+            const shopSection = document.querySelector('.slider-section');
+            const toggleButton = document.getElementById('category-toggle');
+            const arrow = document.getElementById('category-toggle-arrow');
+            const isVisible = categories.style.display !== 'none';
+
+            categories.style.display = isVisible ? 'none' : 'flex';
+            shopSection.style.marginTop = isVisible ? '8vh' : '23vh';
+            toggleButton.setAttribute('aria-expanded', String(!isVisible));
+            toggleButton.setAttribute('aria-label', isVisible ? 'Show categories' : 'Hide categories');
+            toggleButton.setAttribute('title', isVisible ? 'Show categories' : 'Hide categories');
+            arrow.textContent = isVisible ? '⌄' : '⌃';
+        }
+
+        // Keep the original function names available for any existing callers.
+        function hideCatagories(){
+            const categories = document.getElementById('catagories-section');
+            if (categories.style.display !== 'none') toggleCatagories();
+        }
+
+        function showCatagories(){
+            const categories = document.getElementById('catagories-section');
+            if (categories.style.display === 'none') toggleCatagories();
+        }
+
+//slide lingshi
+        (function initCarSlider(){
+            const slider = document.querySelector('.slider-section');
+            if (!slider) return;
+
+            const imagePaths = [
+                'images/purple-site.png',
+                'images/red-site.png',
+                'images/orange-site.png',
+                'images/custom-site.png'
+            ];
+            const imageAlts = [
+                'Koenigsegg Jesko',
+                'LaFerrari',
+                'Porsche Taycan',
+                'BMW M4'
+            ];
+
+            const mainImage = slider.querySelector('.slider-main-image');
+            const counter = slider.querySelector('.slider-counter');
+            const thumbnails = Array.from(slider.querySelectorAll('.slider-choose-part'));
+            const previousButton = slider.querySelector('.slider-prev');
+            const nextButton = slider.querySelector('.slider-next');
+            let currentSlide = 0;
+
+            function showSlide(index){
+                currentSlide = (index + imagePaths.length) % imagePaths.length;
+                mainImage.src = imagePaths[currentSlide];
+                mainImage.alt = imageAlts[currentSlide];
+                counter.textContent = (currentSlide + 1) + ' / ' + imagePaths.length;
+
+                thumbnails.forEach(function(thumbnail, thumbnailIndex){
+                    const isActive = thumbnailIndex === currentSlide;
+                    thumbnail.classList.toggle('active', isActive);
+                    if (isActive) {
+                        thumbnail.setAttribute('aria-current', 'true');
+                    } else {
+                        thumbnail.removeAttribute('aria-current');
+                    }
+                });
+            }
+
+            thumbnails.forEach(function(thumbnail, index){
+                thumbnail.addEventListener('click', function(){
+                    showSlide(index);
+                });
+                thumbnail.addEventListener('keydown', function(event){
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        showSlide(index);
+                    }
+                });
+            });
+
+            previousButton.addEventListener('click', function(){
+                showSlide(currentSlide - 1);
+            });
+
+            nextButton.addEventListener('click', function(){
+                showSlide(currentSlide + 1);
+            });
+        })();
+
+        function goTosettings(){
+            window.location.href = 'settings.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+             margin: 0;
+             padding: 0;
+        }
+
+        body{
+            background-color: #023859;
+        }
+
+        hr{
+            background-color: #54abbf;
+            width: 100%;
+            border: none;
+            height: 4px;
+        }
+
+        .uk{
+             width: 60%;
+        }
+
+        .uk2{
+            height: 5%;
+        }
+
+        .header{
+            width: 100%;
+            height: 8vh;
+            display: flex;
+            flex-direction: row;
+            background-color: rgba(58, 97, 136, 0.7504);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            z-index: 999;
+            top: 0;
+        }
+
+        .header-left{
+            width: 25%;
+            height: 100%;
+            display: flex;
+        }
+
+        .header-left h2{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #54abbf;
+            font-size: xx-large;
+            margin: auto;
+            text-align: center;
+        }
+
+        .header-right{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+        }
+
+        .header-right a{
+            color: #a7ebf2;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: auto;
+            cursor: pointer;
+            transition: .5s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .header-right a:hover{
+            color: #71dce8;
+            transition: .5s;
+        }
+
+
+
+
+        .first{
+            height: 100vh;
+            margin-top: 8vh;
+            width: 100%;
+            background-color: #023859;
+        }
+
+        .first-top, .first-bottom{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            margin: auto;
+        }
+
+        .first-top-left{
+            width: 50%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .top-left-inner{
+            width: 85%;
+            margin: auto;
+            height: 90%;
+            display: flex;
+            flex-direction: row;
+            border-radius: 30px;
+            background-color: #0e496e;
+        }
+
+        .F-T-L-inner-left{
+            width: 30%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        .T-L-I-left-top{
+            width: 100%;
+            height: 50%;
+            background-image: url(images/tycan.jpg);
+            background-position: center;
+            background-size: cover;
+            border-bottom: 3px solid #e5e908;
+            border-right: 3px solid #e5e908;
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 100%;
+        }
+        .T-L-I-left-bottom{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .class-indicator{
+            width: 90%;
+            height: 80%;
+            background-color: #023859;
+            margin: auto;
+            display: flex;
+            border-radius: 30px;
+        }
+
+        .class-indicator h4{
+            color: #e5e908;
+            text-align: center;
+            margin: auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 900;
+        }
+
+        .F-T-L-inner-right{
+            width: 70%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        .F-T-L-inner-right h4{
+            color: #e5e908;
+            text-align: center;
+            margin: auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 900;
+        }
+
+        .purchase-counter{
+            width: 90%;
+            margin: auto;
+            height: 25%;
+            display: flex;
+            background-color: #023859;
+            border-radius: 30px;
+        }
+
+
+        
+
+        .first-top-right{
+            width: 50%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .top-right-inner{
+            width: 90%;
+            height: 90%;
+            margin: auto;
+            border-radius: 30px;
+            background-color: #0e496e;
+        }
+
+        .first-bottom-left{
+            width: 70%;
+            color: #54abbf;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bottom-left-inner{
+            width: 90%;
+            height: 80%;
+            margin: auto;
+            border-radius: 30px;
+            background-color: #135c89;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .first-bottom-right{
+            width: 30%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .bottom-right-inner{
+            width: 90%;
+            height: 80%;
+            margin: auto;
+            border-radius: 30px;
+            background-color: #135c89;
+            display: flex;
+        }
+
+        .T-R-inner-top{
+            width: 100%;
+            height: 15%;
+            margin: auto;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            background-color: #398494;
+            display: flex;
+        }
+
+        .T-R-inner-top h4{
+            text-align: center;
+            color: #00252c;
+            margin: auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: larger;
+            font-weight: 700;
+        }
+
+        .T-R-inner-mid{
+            width: 100%;
+            height: 65%;
+            margin: auto;
+            display: flex;
+        }
+
+        .T-R-inner-mid h5{
+            text-align: center;
+            color: #54abbf;
+            margin: auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: larger;
+            font-weight: 700;
+        }
+
+        .T-R-inner-bottom{
+            width: 100%;
+            height: 20%;
+            margin: auto;
+            display: flex;
+        }
+
+        .T-R-inner-bottom button{
+            width: 40%;
+            height: 100%;
+            margin: auto;
+            border: none;
+            cursor: pointer;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            background-color: #011c40;
+            display: flex;
+        }
+
+        .T-R-inner-bottom button h2{
+            text-align: center;
+            color: #54abbf;
+            margin: auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: larger;
+            font-weight: 700;
+        }
+        
+        .B-L-inner-top{
+            width: 100%;
+            height: 20%;
+            margin: auto;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            background-color: #398494;
+            display: flex;
+        }
+
+        .B-L-inner-top h4{
+            margin: auto;
+            color: #0a2a32;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: larger;
+        }
+
+        .B-L-inner-bottom{
+            width: 100%;
+            height: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .B-L-inner-bottom h5{
+            margin: auto;
+            color: #54abbf;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: larger;
+        }
+
+
+
+        .second{
+            height: 100vh;
+            width: 100%;
+            background-color: #011c40;
+        }
+
+        .second-top{
+            width: 100%;
+            height: 15%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .classes{
+            width: 20%;
+            margin: auto;
+            height: 85%;
+            display: flex;
+            
+        }
+
+        .classes h2{
+            color: #54abbf;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 900;
+            margin: auto;
+        }
+
+        .second-bottom{
+            width: 100%;
+            height: 85%;
+            display: flex;
+        }
+
+        .class-one, .class-two, .class-three{
+            height: 90%;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 30px;
+            transition: .5s;
+            margin: auto;
+            background-color: #043f64;
+        }
+
+        .class-one:hover, .class-two:hover, .class-three:hover{
+            transform: translateY(-7.5px);
+            box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.349);
+            transition: .5s;
+        }
+
+        #class .top{
+            width: 100%;
+            margin: auto;
+            height: 15%;
+            display: flex;
+        }
+
+        #class .top-inner{
+            width: 60%;
+            height: 100%;
+            margin: auto;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            display: flex;
+        }
+
+        #class .top-inner h2{
+            text-align: center;
+            margin: auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 900;
+            font-size: xx-large;
+        }
+
+        #class .bottom{
+            width: 100%;
+            margin: auto;
+            height: 85%;
+            display: flex;
+        }
+
+        #class .bottom-inner{
+            width: 100%;
+            height: 70%;
+            margin: auto;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #class .bottom-inner h3{
+            width: 80%;
+            text-align: center;
+            
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 900;
+            font-size: 15px;
+            margin: auto;
+        }
+
+        
+        
+
+        
+
+
+
+
+        .third{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #023859;
+        }
+
+        .third-top{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .third-top h2{
+            margin: auto;
+            color: #54abbf;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .third-bottom{
+            width: 100%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two{
+            width: 100%;
+            height: 100vh;
+            background: #011c40;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-bottom, .two-top{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            margin: auto;
+        }
+
+        .two-parts{
+            width: 30%;
+            height: 90%;
+            transition: .5s;
+            background-color: #26658c;
+            border-radius: 30px;
+            margin: auto;
+        }
+
+        .two-parts:hover{
+            transform: translateY(-7px);
+            box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.349);
+            transition: .5s;
+        }
+
+        .two-parts-top{
+            width: 100%;
+            height: 40%;
+            display: flex;
+            margin: auto;
+        }
+
+        .two-parts-bottom{
+            width: 100%;
+            height: 60%;
+            display: flex;
+            margin: auto;
+        }
+
+        .prof-pic{
+            margin: auto;
+            height: 90%;
+            width: 24%;
+            border-radius: 50%;
+        }
+
+        .two-parts-bottom h2{
+            width: 90%;
+            margin: auto;
+            font-size: larger;
+            color: #a7ebf2;
+            font-weight: 300;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div class="header-left">
+            <h2>Gruve</h2>
+        </div>
+
+        <div class="header-right">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shelf</a>
+            <a href="settings.html">Settings</a>
+            <a class="cart-btn" href="">CART</a>
+        </div>
+    </section>
+
+    <section class="first">
+        <div class="first-top">
+            <div class="first-top-left">
+                <div class="top-left-inner">
+                    <div class="F-T-L-inner-left">
+                        <div class="T-L-I-left-top"></div>
+                        <div class="T-L-I-left-bottom">
+                            <div class="class-indicator">
+                                <div class="uk2"></div>
+                                <h4>V.I.P</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="F-T-L-inner-right">
+                        <h4>Jhon Doe</h4>
+                        <h4>Gruve-user@gmail.com</h4>
+                        <h4>I am A User Of Gruve</h4>
+                        <h4>**************</h4>
+                        <div class="purchase-counter">
+                            <h4><span>67</span> Purchases</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="first-top-right">
+                <div class="top-right-inner">
+                    <div class="T-R-inner-top">
+                        <h4>Last Orders</h4>
+                    </div>
+                    <div class="T-R-inner-mid">
+                        <h5>no orders yet.</h5>
+                    </div>
+
+                    <div class="T-R-inner-bottom">
+                        <button onclick="goToshelf()"><h2>Shelf-></h2></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="first-bottom">
+            <div class="first-bottom-left">
+                <div class="bottom-left-inner">
+                    <div class="B-L-inner-top">
+                        <h4>Your VersEs↓</h4>
+                        <h4 style="cursor: pointer;" onclick="goToverse">Create A VersE-></h4>
+                        <div class="uk"></div>
+                    </div>
+                    <div class="B-L-inner-bottom">
+                        <h5>no VersEs yet.</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="first-bottom-right">
+                <div class="bottom-right-inner"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="second">
+        <div class="second-top">
+            <div class="classes">
+                <h2>Classes</h2>
+            </div>
+        </div>
+
+        <div class="second-bottom">
+            <div style="border: 3px solid white;" onclick="goToverse()" id="class" class="class-one">
+                <div class="top">
+                    <div style="background-color: white;" class="top-inner">
+                        <h2 style="color: rgb(0, 0, 0);">Beginner</h2>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="bottom-inner">
+                        <h3 style="color: white;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: white;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: white;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: white;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: white;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                    </div>
+                </div>
+            </div>
+            <div style="border: 3px solid rgb(45, 226, 239);" onclick="goToverse()" id="class" class="class-two">
+                <div class="top">
+                    <div style="background-color: rgb(45, 226, 239) ;" class="top-inner">
+                        <h2 style="color: rgb(4, 25, 54);">Pro</h2>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="bottom-inner">
+                        <h3 style="color: rgb(45, 226, 239) ;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: rgb(45, 226, 239) ;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: rgb(45, 226, 239) ;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: rgb(45, 226, 239) ;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: rgb(45, 226, 239) ;">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                    </div>
+                </div>
+            </div>
+            <div style="border: 3px solid rgb(244, 255, 26);" onclick="goToverse()" id="class" class="class-three">
+                <div class="top">
+                    <div style="background-color: rgb(244, 255, 26);" class="top-inner">
+                        <h2 style="color: rgb(29, 25, 7);">V.I.P</h2>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="bottom-inner">
+                        <h3 style="color: rgb(244, 255, 26);">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: rgb(244, 255, 26);">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: rgb(244, 255, 26);">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: rgb(244, 255, 26);">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                        <h3 style="color: rgb(244, 255, 26);">✔ Lorem ipsum dolor sit amet consectetur adipisicing </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="third">
+        <div class="third-top">
+            <h2>Recomended For You:)</h2>
+        </div>
+
+        <div class="third-bottom">
+             <div class="two-top">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+            
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b0b63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #72c3eb63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="two-bottom">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #0a159063;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b0b63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        function goToshelf(){
+            window.location.href = 'shop.html';
+        }
+        function goToverse(){
+            window.location.href = 'verse.html';
+        }
+    </script>
+</body>
+</html>

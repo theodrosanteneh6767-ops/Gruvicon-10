@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web name</title>
+    <style class="top-contents">
+        .header{
+            width: 100%;
+            height: 8vh;
+            display: flex;
+            flex-direction: row;
+            background-color: rgba(58, 97, 136, 0.7504);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            z-index: 999;
+            top: 0;
+        }
+
+        .header-left{
+            width: 25%;
+            height: 100%;
+            display: flex;
+        }
+
+        .header-left h2{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #54abbf;
+            font-size: xx-large;
+            margin: auto;
+            text-align: center;
+        }
+
+        .header-right{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+        }
+
+        .header-right a{
+            color: #a7ebf2;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: auto;
+            cursor: pointer;
+            transition: .5s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .header-right a:hover{
+            color: #71dce8;
+            transition: .5s;
+        }
+
+        .more-sites{
+            width: 100%;
+            height: 8vh;
+            background-color: #011c40;
+            display: flex;
+        }
+
+        .more-sites h4{
+            margin: auto;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: large;
+            transition: .5s;
+            color: #4494c5;
+            cursor: pointer;
+        }
+
+        .more-sites h4:hover{
+            color: #65cfe7;
+            transition: .5s;
+        }
+
+
+
+        #add-verse-section{
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            background-color: #02385951;
+            backdrop-filter: blur(10px);
+        }
+
+        .add-verse-inner{
+            width: 70%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            background-color: #022b45;
+            margin: auto;
+            border-radius: 30px;
+
+        }
+
+        .add-verse-inner h2{
+            width: 70%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: xx-large;
+            text-align: center;
+            color: #a7ebf2;
+            margin: auto;
+        }
+
+        .describable-hol{
+            width: 100%;
+            height: 80%;
+            margin: auto;
+            display: flex;
+        }
+
+        .describable-left, .describable-right{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        p{
+            margin: auto;
+            margin-bottom: 10px;
+            display: flex;
+            color: #a7ebf2;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 900;
+        }
+
+        input{
+            width: 75%;
+            height: 55px;
+            border: none;
+            outline: none;
+            margin: auto;
+            background-color: #58a2cf;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #034046;
+            border-radius: 30px;
+            margin-bottom: 10px;
+        }
+
+        .uk1{
+            width: 2.5%;
+        }
+
+        #minusversepopup{
+            margin: auto;
+            background-color: transparent;
+            border: none;
+            font-size: large;
+            cursor: pointer;
+            color: #cbbaff;
+        }
+
+        .advance-btn{
+            width: 30%;
+            height: 55px;
+            background-color: #4494c5;
+            color: #011c40;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 700;
+            font-size: larger;
+            margin: auto;
+            cursor: pointer;
+            border: none;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+        }
+
+
+
+        #next-verse-section{
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            background-color: #02385951;
+            backdrop-filter: blur(10px);
+        }
+
+        .next-verse-inner{
+            width: 70%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            background-color: #022b45;
+            margin: auto;
+            border-radius: 30px;
+
+        }
+
+        .next-verse-inner h2{
+            width: 70%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: xx-large;
+            text-align: center;
+            color: #a7ebf2;
+            margin: auto;
+        }
+        
+    </style>
+
+    <style class="medium-contents">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: #023859;
+        }
+
+
+        .one{
+            width: 100%;
+            height: 120vh;
+            margin-top: 8vh;
+            background:#023859;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .one-inner{
+            width: 95%;
+            height: 75%;
+            display: flex;
+            background: linear-gradient(90deg,rgba(6, 31, 96, 0.139), rgba(84, 131, 224, 0.3));
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin: auto;
+        }
+
+        .one-inner-left{
+            width: 40%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .one-text-hol{
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            width: 100%;
+        }
+
+        .gruve-text{
+            color: #54abbf;
+            font-size: 10cap;
+            font-weight: 600;
+            width: 80%;
+            margin: auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .gruve-par{
+            color: #a7ebf2;
+            font-size: 1.75cap;
+            width: 90%;
+            margin: auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .one-inner-right{
+            width: 40%;
+            height: 89%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .one-inner-right img{
+            margin: auto;
+            width: 100%;
+        }
+
+        .one-right-top, .one-right-bottom{
+            margin: auto;
+            width: 100%;
+            height: 50%;
+            display: flex;
+        }
+
+        .one-mini-left{
+            width: 70%;
+            height: 15%;
+            margin: auto;
+            display: flex;
+            background-color: rgba(15, 0, 44, 0.25);
+            border-radius: 50px;
+        }
+
+        .mini-circle{
+            width: 10%;
+            height: 81%;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: rgb(38, 101, 140);
+            margin: auto;
+        }
+
+        .one-top{
+            height: 95%;
+            width: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .one-bottom{
+            width: 100%;
+            height: 25%;
+            display: flex;
+            margin: auto;
+        }
+
+        .one-parts{
+            width: 25%;
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            transition: .5s;
+            margin: auto;
+        }
+
+        .one-parts:hover{
+            transition: .5s;
+            background-color: rgba(223, 224, 232, 0.95);
+        }
+
+        .one-parts h2{
+            width: 90%;
+            margin: auto;
+            font-size: larger;
+            color: rgba(136, 145, 224, 0.95);
+            font-weight: 300;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .one-top-left{
+            width: 40%;
+            height: 100%;
+            display: flex;
+        }
+
+        .one-top-right{
+            width: 60%;
+            height: 100%;
+            display: flex;
+        }
+
+        .top-left-inner{
+            width: 95%;
+            height: 90%;
+            background-color: rgba(27, 0, 48, 0.089);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin: auto;
+        }
+
+        .top-right-inner{
+            width: 95%;
+            height: 90%;
+            background-color: rgba(27, 0, 48, 0.089);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin: auto;
+        }
+
+        .top-left-inner-top{
+            width: 100%;
+            height: 30%;
+            display: flex;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.349);
+        }
+
+        .top-left-inner-bottom{
+            width: 100%;
+            height: 70%;
+            display: flex;
+            
+        }
+
+        .profile-icon{
+            width: 22%;
+            height: 90%;
+            margin: auto;
+            border-radius: 50%;
+            background-position: center;
+            background-size: cover;
+            background-image: url(images/pexels-iriser-1233419.jpg);
+        }
+
+        .profile-name-block{
+            width: 45%;
+            height: 50%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-name, .profile-bio{
+            width: 85%;
+            text-align: center;
+            margin: auto;
+            font-size: large;
+            color: rgba(16, 17, 32, 0.95);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .profile-bio{
+            font-size: 15px;
+            font-weight: 200;
+        }
+
+        .top-right-inner-top{
+            width: 90%;
+            height: 20%;
+            margin: auto;
+            border-radius: 30px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            display: flex;
+        }
+
+        .top-right-inner-top h2{
+            width: 100%;
+            margin: auto;
+            font-size: large;
+            color: rgba(16, 17, 32, 0.95);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .top-right-inner-bottom{
+            height: 75%;
+            width: 100%;
+            display: flex;
+            margin: auto;
+        }
+
+        .right-inner-bottom-left{
+            width: 40%;
+            height: 90%;
+            display: flex;
+            margin: auto;
+            border-radius: 30px;
+            background-color: rgba(0, 0, 0, 0.349);
+            flex-direction: column;
+        }
+
+        .right-inner-bottom-right{
+            width: 52.5%;
+            height: 90%;
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.349);
+            margin: auto;
+            border-radius: 30px;
+            flex-direction: column;
+        }
+
+        
+
+
+
+
+        .two{
+            width: 100%;
+            height: 100vh;
+            background: #011c40;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-bottom, .two-top{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            margin: auto;
+        }
+
+        .two-parts{
+            width: 30%;
+            height: 90%;
+            transition: .5s;
+            background-color: #26658c;
+            border-radius: 30px;
+            margin: auto;
+        }
+
+        .two-parts:hover{
+            transform: translateY(-7px);
+            box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.349);
+            transition: .5s;
+        }
+
+        .two-parts-top{
+            width: 100%;
+            height: 40%;
+            display: flex;
+            margin: auto;
+        }
+
+        .two-parts-bottom{
+            width: 100%;
+            height: 60%;
+            display: flex;
+            margin: auto;
+        }
+
+        .prof-pic{
+            margin: auto;
+            height: 90%;
+            width: 26%;
+            border-radius: 50%;
+        }
+
+        .two-parts-bottom h2{
+            width: 90%;
+            margin: auto;
+            font-size: larger;
+            color: #a7ebf2;
+            font-weight: 300;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+        }
+
+
+        .three{
+            width: 100%;
+            height: 100vh;
+            background: #023859;
+            display: flex;
+        }
+
+        .three-left, .three-right{
+            width: 50%;
+            height: 100%;
+            display: flex;
+        }
+
+        .three-inner{
+            width: 92.5%;
+            height: 90%;
+            background-color: #26658c;
+            border-radius: 30px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .three-left-inner-top{
+            height: 50%;
+            width: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .three-left-inner-bottom{
+            height: 40%;
+            width: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .three-left-inner-top h2{
+            height: 90%;
+            width: 90%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #a7ebf2;
+            font-size: large;
+            line-height: 40px;
+            margin: auto;
+            display: flex;
+        }
+
+        .three-left-inner-bottom h2{
+            height: 90%;
+            width: 90%;
+            text-align: right;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #a7ebf2;
+            font-size: large;
+            line-height: 40px;
+            margin: auto;
+            display: flex;
+        }
+
+
+        .verse-holder{
+            height: 60%;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .add-verse-btn{
+            margin: auto;
+            width: 20%;
+            height: 36%;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: .5s;
+            color: #a7ebf2;
+            border-radius: 50%;
+            font-size: xx-large;
+        }
+
+        .add-verse-btn:hover{
+            background-color: #54abbf46;
+            transition: .5s;
+        }
+
+        .add-text{
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #a7ebf2;
+            font-size: large;
+            margin: auto;
+        }
+
+
+
+        .mid{
+            width: 100%;
+            height: 40vh;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left-mid{
+            display: flex;
+            width: 50%;
+            height: 100%;
+            flex-direction: column;
+            background-image: url(images/blue-leaf.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .right-mid{
+            display: flex;
+            width: 50%;
+            height: 100%;
+            flex-direction: column;
+            background-image: url(images/blue-leaf-opposite.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .mid-text-hol{
+            height: 40%;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mid h2{
+            color: #54abbf;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: auto;
+            text-align: center;
+            font-size: xx-large;
+            font-weight: 900;
+        }
+
+        .mid p{
+            color: #a7ebf2;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: auto;
+            width: 80%;
+            text-align: center;
+            font-size: larger;
+            font-weight: 900;
+        }
+
+
+        .slider-section{
+            width: 100%;
+            height: 100vh;
+            background-color: #011c40;
+            display: flex;
+        }
+
+        .slider-slides-content-choosing-part{
+            width: 15%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            background-color: #26658c8c;
+            border-radius: 30px;
+            height: 90%;
+        }
+
+        .slider-choose-part{
+            margin: auto;
+            height: 22%;
+            width: 90%;
+            border-radius: 30px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .slider-section-inner{
+            width: 60%;
+            height: 90%;
+            background-color: #26658c;
+            border-radius: 30px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .slider-section-inner .slider-main-image{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        .slider-section-inner .slider-arrow{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(1, 28, 64, 0.75);
+            color: #a7ebf2;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .slider-section-inner .slider-arrow:hover{
+            background: rgba(1, 28, 64, 0.95);
+        }
+
+        .slider-section-inner .slider-prev{
+            left: 18px;
+        }
+
+        .slider-section-inner .slider-next{
+            right: 18px;
+        }
+
+        .slider-section-inner .slider-counter{
+            position: absolute;
+            left: 50%;
+            bottom: 18px;
+            transform: translateX(-50%);
+            padding: 8px 14px;
+            border-radius: 20px;
+            color: #a7ebf2;
+            background: rgba(1, 28, 64, 0.75);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .slider-choose-part{
+            cursor: pointer;
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            transition: border-color .2s, transform .2s;
+        }
+
+        .slider-choose-part:hover{
+            transform: scale(1.03);
+        }
+
+        .slider-choose-part.active{
+            border-color: #a7ebf2;
+        }
+
+    </style>
+
+
+    <style class="bottom-contents">
+        .footer{
+            width: 100%;
+            height: 40vh;
+            background-color: rgb(11, 24, 49);
+        }
+    </style>
+</head>
+<body>
+    <section id="add-verse-section">
+        <div class="add-verse-inner">
+            <h2><button onclick="minusversepopup()" id="minusversepopup">✖</button><div class="uk1"></div> Describe the VersE that you want to make. </h2>
+            <div class="describable-hol">
+                <div class="describable-left">
+                    <p>VersE Name</p>
+                    <input type="text" id="verse-name">
+                    <p>VersE sector</p>
+                    <input type="text" id="verse-sector">
+                    <p>VersE Descriplion</p>
+                    <input type="text" id="verse-desc">
+                </div>
+            </div>
+            <button onclick="advance()" class="advance-btn">Advance</button>
+        </div>
+    </section>
+
+    <section id="next-verse-section">
+        <div class="next-verse-inner">
+            <h2><button onclick="minusversepopup2()" id="minusversepopup">✖</button><div class="uk1"></div> Describe the VersE that you want to make. </h2>
+            <div class="describable-hol">
+                <div class="describable-left">
+                    <p>Color</p>
+                    <input type="text" id="verse-name">
+                    <p>Theme</p>
+                    <input type="text" id="verse-sector">
+                    <p>Project name</p>
+                    <input type="text" id="verse-desc">
+                </div>
+
+                <div class="describable-right">
+                    <p>Manufucturer name</p>
+                    <input type="text" id="verse-name">
+                    <p>Price ($)</p>
+                    <input type="number" id="verse-sector">
+                    <p>Broad Description</p>
+                    <input type="text" id="verse-desc">
+                </div>
+            </div>
+            <button onclick="advance()" class="advance-btn">Next</button>
+        </div>
+    </section>
+
+    <section class="header">
+        <div class="header-left">
+            <h2>Gruve</h2>
+        </div>
+
+        <div class="header-right">
+            <a href="profile.html">Profile</a>
+            <a href="shop.html">Shelf</a>
+            <a href="settings.html">Settings</a>
+            <a class="cart-btn" href="">CART</a>
+        </div>
+    </section>
+
+    <section class="one">
+        <div class="one-inner">
+            <div class="one-inner-left">
+                <div class="one-text-hol">
+                    <h2 class="gruve-text">Gruve</h2>
+                    <p class="gruve-par">Discover, buy, and sell ready-made websites in one powerful digital marketplace. Explore unique designs, compare prices, and find the perfect website for your business, startup, or personal project. Whether you're looking for a professional online store, a portfolio, or a complete business website, turn your ideas into reality with ease. Your next website starts here at Gruve.</p>
+                </div>
+            </div>
+
+            <div class="one-inner-right">
+                <img src="images/one-vector.png" alt="">
+            </div>
+        </div>
+        <div class="one-mini-left">
+            <div style="background: linear-gradient(90deg,rgb(255, 8, 0),rgb(114, 56, 2))" class="mini-circle"></div>
+            <div style="background: linear-gradient(90deg,rgb(255, 236, 255),rgb(93, 106, 114))" class="mini-circle"></div>
+            <div style="background: linear-gradient(90deg,rgb(255, 251, 0),rgb(122, 98, 3))"class="mini-circle"></div>
+            <div style="background: linear-gradient(90deg,rgb(255, 0, 255),rgb(66, 12, 215))" class="mini-circle"></div>
+            <div style="background: linear-gradient(90deg,rgb(0, 47, 255),rgb(26, 168, 219))" class="mini-circle"></div>
+            <div style="background: linear-gradient(90deg,rgb(21, 255, 0),rgb(13, 80, 2))" class="mini-circle"></div>
+            <div style="background: linear-gradient(90deg,rgb(255, 170, 0),rgb(227, 173, 80))" class="mini-circle"></div>
+        </div>
+    </section>
+
+    <section class="two">
+        <div class="two-top">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+            
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b0b63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b0b63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="two-bottom">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #0a159063;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #bf0b0b63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="two">
+        <div class="two-top">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #08acbb63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+            
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #0a159063;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #6606a163;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="two-bottom">
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #08acbb63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #08acbb63;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+
+            <div class="two-parts">
+                <div class="two-parts-top">
+                    <div style="background-color: #0a159063;" class="prof-pic"></div>
+                </div>
+                <div class="two-parts-bottom">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nemo pariatur obcaecati, non in sunt quos ratione unde.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="more-sites">
+        <h4 onclick="goToshop()">More Options Are Waiting At Their Shelf -></h4>
+    </section>
+    
+    <section class="mid">
+        <div class="left-mid">
+            <div class="mid-text-hol">
+                <h2>Buy Any Site</h2>
+                <p>Blue, Red, Yellow, Landing & Shoping Sites, Or A Custom Made, You Have It All Here...</p>
+            </div>
+        </div>
+        <div class="right-mid">
+            <div class="mid-text-hol">
+                <h2>Sell Any Site</h2>
+                <p>New Designs? New Sectors Or A Site Breakthrough? If It Is Then Work With Us...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="three">
+        <div class="three-left">
+            <div class="three-inner">
+                <div class="three-left-inner-top">
+                    <h2>VersE in Gruve's words are websites that are customely ordered by users of Gruve. Or in other words, A website that is partialy or completely different from websites that are in stock for sale in Gruve's Shop shelf.</h2>
+                </div>
+                <div class="three-left-inner-bottom">
+                    <h2>You can order a VersE by interacting with the "add+" button at the right of this text, You will describe ,classify ,name ,and follow other steps for the VersE to succesfuly be applicable</h2>
+                </div>
+            </div>
+        </div>
+        <div class="three-right">
+            <div class="three-inner">
+                <div class="verse-holder">
+                    <button class="add-verse-btn" onclick="addversepopup()">+</button>
+                    <h4 class="add-text">Make a VersE site...</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slider-section">
+        <div class="slider-slides-content-choosing-part">
+            <div style="background-image: url(images/purple-site.png);" class="slider-choose-part active" data-slide="0" role="button" tabindex="0" aria-label="Show Porsche Taycan image"></div>
+            <div style="background-image: url(images/red-site.png);" class="slider-choose-part" data-slide="1" role="button" tabindex="0" aria-label="Show LaFerrari image"></div>
+            <div style="background-image: url(images/orange-site.png);" class="slider-choose-part" data-slide="2" role="button" tabindex="0" aria-label="Show Koenigsegg Jesko image"></div>
+            <div style="background-image: url(images/custom-site.png);" class="slider-choose-part" data-slide="3" role="button" tabindex="0" aria-label="Show BMW M4 image"></div>
+        </div>
+        <div class="slider-section-inner" aria-label="Car image slider">
+            <img class="slider-main-image" src="images/purple-site.png" alt="Porsche Taycan">
+            <button class="slider-arrow slider-prev" type="button" aria-label="Previous image">&#8249;</button>
+            <button class="slider-arrow slider-next" type="button" aria-label="Next image">&#8250;</button>
+            <div class="slider-counter" aria-live="polite">1 / 4</div>
+        </div>
+    </section>
+
+
+
+    <section class="footer"></section>
+
+
+
+    <script>
+        function addversepopup(){
+            const addversesection =  document.getElementById('add-verse-section');
+            addversesection.id = 'add-verse-section';
+            addversesection.style.display = 'flex';
+        }
+
+        function minusversepopup(){
+            const addversesection =  document.getElementById('add-verse-section');
+            addversesection.id = 'add-verse-section';
+            addversesection.style.display = 'none';
+        }
+
+        function minusversepopup2(){
+            const addversesection =  document.getElementById('next-verse-section');
+            addversesection.id = 'add-verse-section';
+            addversesection.style.display = 'none';
+        }
+
+        function advance(){
+            const verseNameinput = document.getElementById('verse-name');
+            const verseSectorinput = document.getElementById('verse-sector');
+            const verseDescinput = document.getElementById('verse-desc');
+
+            const verseName = verseNameinput ? verseNameinput: '';
+            const verseSector = verseSectorinput ? verseSectorinput: '';
+            const verseDesc = verseDescinput ? verseDescinput: '';
+
+            localStorage.setItem(verseName, 'myVersename');
+            localStorage.setItem(verseSector, 'myVersesector');
+            localStorage.setItem(verseDesc, 'myVersedesc');
+            alert('Saved...');
+
+            const addversesection =  document.getElementById('add-verse-section');
+            addversesection.id = 'add-verse-section';
+            addversesection.style.display = 'none';
+
+            const nextversesection =  document.getElementById('next-verse-section');
+            nextversesection.id = 'next-verse-section';
+            nextversesection.style.display = 'flex';
+        }
+
+        // Slider behavior is scoped only to the slider section.
+        (function initCarSlider(){
+            const slider = document.querySelector('.slider-section');
+            if (!slider) return;
+
+            const imagePaths = [
+                'images/purple-site.png',
+                'images/red-site.png',
+                'images/orange-site.png',
+                'images/custom-site.png'
+            ];
+            const imageAlts = [
+                'Koenigsegg Jesko',
+                'LaFerrari',
+                'Porsche Taycan',
+                'BMW M4'
+            ];
+
+            const mainImage = slider.querySelector('.slider-main-image');
+            const counter = slider.querySelector('.slider-counter');
+            const thumbnails = Array.from(slider.querySelectorAll('.slider-choose-part'));
+            const previousButton = slider.querySelector('.slider-prev');
+            const nextButton = slider.querySelector('.slider-next');
+            let currentSlide = 0;
+
+            function showSlide(index){
+                currentSlide = (index + imagePaths.length) % imagePaths.length;
+                mainImage.src = imagePaths[currentSlide];
+                mainImage.alt = imageAlts[currentSlide];
+                counter.textContent = (currentSlide + 1) + ' / ' + imagePaths.length;
+
+                thumbnails.forEach(function(thumbnail, thumbnailIndex){
+                    const isActive = thumbnailIndex === currentSlide;
+                    thumbnail.classList.toggle('active', isActive);
+                    if (isActive) {
+                        thumbnail.setAttribute('aria-current', 'true');
+                    } else {
+                        thumbnail.removeAttribute('aria-current');
+                    }
+                });
+            }
+
+            thumbnails.forEach(function(thumbnail, index){
+                thumbnail.addEventListener('click', function(){
+                    showSlide(index);
+                });
+                thumbnail.addEventListener('keydown', function(event){
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        showSlide(index);
+                    }
+                });
+            });
+
+            previousButton.addEventListener('click', function(){
+                showSlide(currentSlide - 1);
+            });
+
+            nextButton.addEventListener('click', function(){
+                showSlide(currentSlide + 1);
+            });
+        })();
+
+
+        function goToshop(){
+            window.location.href = 'shop.html';
+        }
+    </script>
+</body>
+</html>
